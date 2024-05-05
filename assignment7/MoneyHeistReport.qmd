@@ -8,10 +8,12 @@ editor: visual
 
 Money Heist (Spanish: La casa de papel, \[la ˈkasa ðe paˈpel\], lit. 'The House of Paper') is a Spanish heist crime drama television series created by Álex Pina. The series traces two long-prepared heists led by the Professor (Álvaro Morte), one on the Royal Mint of Spain, and one on the Bank of Spain, told from the perspective of one of the robbers, Tokyo (Úrsula Corberó). The story is told in a real-time-like fashion and relies on an unreliable narrator, flashbacks, time-jumps and hidden character motivations for complexity.\[2\]\[3\]\[4\]
 
+![Tokio](images.jpg)
+
 ## Cast and characters
 
 |                         **Role**                          |  **Portrayed by**   |                                                                                                                                                                                                           |
-|:---------------------------------------------------------:|:-------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|:------------:|:------------:|:-------------------------------------------:|
 |                  Silene Oliveira (Tokyo)                  |   Úrsula Corberó    |                                a runaway turned robber who is scouted by the Professor, then joins his group and participates in his plans. She also acts as the narrator.                                |
 | Sergio Marquina (The Professor) / Salvador "Salva" Martín |    Álvaro Morte     |                                                             the mastermind of the heist who assembled the group, and Berlin's younger brother                                                             |
 |                  Raquel Murillo (Lisbon)                  |    Itziar Ituño     |                                                                an inspector of the National Police Corps who is put in charge of the case                                                                 |
