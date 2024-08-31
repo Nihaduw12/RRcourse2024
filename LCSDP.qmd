@@ -1,0 +1,70 @@
+---
+title: "La Casa De Papel"
+author: "Nihad Alili"
+format: html
+editor: visual
+execute: 
+ echo: false
+---
+
+## La Casa De Papel(Money Heist)
+
+**Money Heist** (La Casa De Papel) is a Spanish drama-action television series created by Alex Pina. The series traces two long-prepared heists lead by Professor, one of them on **Royal Mint of Spain** and another one on the **Central Bank of Spain**, told from perspective of one of the robbers Tokyo.
+
+## Main Poster
+
+![La Casa de Papel](https://images.app.goo.gl/KRFMetw2LJNKrXQJ8)
+
+## Series and their views
+
+| Season | Release Date      | Views in millions |
+|:-------|:------------------|------------------:|
+| 1      | May 2, 2017       |               4.3 |
+| 2      | October 16, 2017  |               3.8 |
+| 3      | July 19, 2019     |               7.1 |
+| 4      | April 3, 2020     |               6.7 |
+| 5      | September 3, 2021 |               6.1 |
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+library(ggplot2)
+
+# Data for the viewership over time
+viewership <- data.frame(
+  Season = c(1, 2, 3, 4, 5),
+  Viewers_in_millions = c(4.3, 3.8, 7.1, 6.7, 6.1)
+)
+
+# Plot
+ggplot(viewership, aes(x = Season, y = Viewers_in_millions)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "La Casa de Papel Viewership Over Time",
+       x = "Season",
+       y = "Average Viewership (millions)") +
+  theme_minimal()
+
+```
+
+As we can see ratings were low in the initial two episodes which the team began to heist in **Royal Mint of Spain** and increased in next episodes when they contuniued their heist in **Central Bank of Spain**
+
+### Seaaonal changes in viewerships 
+
+I use the same data above.
+
+```{r}
+#| echo: false
+viewership$Change <- c(NA, diff(viewership$Viewers))
+
+ggplot(viewership, aes(x = Season, y = Change)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Change in Seasons",
+       x = "Season",
+       y = "Change in Viewers in millions") +
+  theme_minimal()
+
+
+```
+
+As we can see main views happened in the **third** season.\
