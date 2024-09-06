@@ -1,0 +1,48 @@
+---
+title: "La Casa De Papel"
+author: "Nihad Alili"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    theme: superhero
+    smooth-scroll: true
+  pdf: 
+    toc: true
+    number-sections: true
+editor: visual
+execute: 
+  echo: fenced
+  warning: false
+  cache: true
+---
+
+#| echo: true
+library(ggplot2)
+
+# Data for the viewership over time
+viewership <- data.frame(
+  Season = c(1, 2, 3, 4, 5),
+  Viewers_in_millions = c(4.3, 3.8, 7.1, 6.7, 6.1)
+)
+
+# Plot
+ggplot(viewership, aes(x = Season, y = Viewers_in_millions)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "La Casa de Papel Viewership Over Time",
+       x = "Season",
+       y = "Average Viewership (millions)") +
+  theme_minimal()
+
+#| echo: true
+viewership$Change <- c(NA, diff(viewership$Viewers_in_millions))
+ggplot(viewership, aes(x = factor(Season), y = Change, fill = Change > 0)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Change in Viewership Between Seasons",
+       x = "Season",
+       y = "Change in Viewership (millions)") +
+  theme_minimal() +
+  scale_fill_manual(values = c("red", "green"))
+

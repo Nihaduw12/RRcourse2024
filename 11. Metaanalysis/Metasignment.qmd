@@ -1,0 +1,98 @@
+---
+title: "Meta Assignment"
+author: "Nihad Alili"
+date: today
+format:  
+  html:
+    theme: lumen
+    toc: true
+    toc_float: true
+title-block-banner: true
+execute:
+  echo: fenced
+---
+
+```{r}
+#| label = "setup",
+#| include = FALSE
+library(meta)
+library(metafor)
+library(dplyr)
+#setwd("")
+```
+
+###Load the data
+
+```{r}
+m_data <- readxl::read_excel("data/metaanalysis_data.xlsx")
+```
+
+## Run meta analysis for boys play with female toys
+
+```{r}
+m.raw_boys_play_female <- metacont(n.e=N_boys,
+                  mean.e=Mean_boys_play_female,
+                  sd.e=SD_boys_play_female,
+                  n.c=N_boys,
+                  mean.c=Mean_boys_play_male,
+                  sd.c=SD_boys_play_male,
+                  data=m_data,
+                  studlab=paste(Study),
+                  comb.fixed = TRUE,
+                  comb.random = TRUE,
+)
+```
+
+### Plot forest
+
+```{r}
+m.raw_boys_play_female %>% forest()
+```
+
+### Plot funnel
+
+```{r}
+m.raw_boys_play_female %>% funnel()
+```
+
+### Find authors gender effect
+
+```{r}
+m.raw_boys_play_female %>% metareg(`Study` + `Male authors`)
+m.raw_boys_play_female %>% metareg(`Study` + `Female authors`)
+```
+
+## Running meta analysis for girls play with male toys, using both fixed and random effect
+
+```{r}
+m.raw_girsl_play_male <- metacont(n.e=N_girls,
+                       mean.e=Mean_girls_play_male,
+                       sd.e=SD_girls_play_male,
+                       n.c=N_girls,
+                       mean.c=Mean_girls_play_female,
+                       sd.c=SD_girls_play_female,
+                       data=m_data,
+                       studlab=paste(Study),
+                       comb.fixed = TRUE,
+                       comb.random = TRUE,
+)
+```
+
+### Plot forest
+
+```{r}
+m.raw_girsl_play_male %>% forest()
+```
+
+### Plot funnel
+
+```{r}
+m.raw_girsl_play_male %>% funnel()
+```
+
+### Find effects of genders of author
+
+```{r}
+m.raw_girsl_play_male %>% metareg(`Study` + `Male authors`)
+m.raw_girsl_play_male %>% metareg(`Study` + `Female authors`)
+```
